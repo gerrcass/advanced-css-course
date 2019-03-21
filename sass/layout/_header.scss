@@ -1,14 +1,14 @@
-.logo-box{
+.header__logo-box{
     position: absolute;
     top: 40px;
     left: 40px;
 }
 
-.logo{
+.header__logo{
     height: 35px;
 }
 
-.text-box{
+.header__text-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -22,7 +22,7 @@
     backface-visibility: hidden; //workaround for the element shaky in animation (hack in order to fix the little shaking in the element)
     margin-bottom: 60px;
 }
-.heading-primary-main{
+.heading-primary--main{
     display:block;
     font-size: 60px;
     font-weight: 400;
@@ -37,7 +37,7 @@
     */    
     
 }
-.heading-primary-sub{
+.heading-primary--sub{
     display:block;
     font-size: 20px;
     font-weight: 700;
@@ -66,7 +66,7 @@
     box-shadow: 0 5px 10px rgba($color-black,.2); 
 }
 
-.btn-white{
+.btn--white{
     background-color: $color-white;
     color: $color-grey-dark;
 }
@@ -84,7 +84,7 @@
     transition: all .4s;
 }
 
-.btn-white::after{
+.btn--white::after{
     background-color: $color-white;
 }
 
@@ -93,7 +93,7 @@
     opacity: 0;
 }
 
-.btn-animated{
+.btn--animated{
     animation: moveInBottom .5s ease-out .75s; //last parameter is a delay
     animation-fill-mode: backwards; //automatically apply the styles up to 0% before the animation starts
 }
