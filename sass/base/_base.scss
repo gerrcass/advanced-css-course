@@ -1,25 +1,16 @@
-*{
+*,
+*::after,
+*::before{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit; //using the power of inheritance instead of just the universal selector
+}
+
+html{
+    //This defines what 1rem is, converting px to rem. Making 1rem = 10px (10/16=0.625) 
+    font-size: 62.5%;
 }
 
 body{
-    font-family: "Lato",sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: $color-grey-dark;
-    padding: 30px;
-}
-
-.header{
-    position: relative;
-    height: 95vh;
-    background-image:
-        linear-gradient(to right bottom,rgba($color-primary,0.8),rgba($color-primary-dark,0.8)),
-        url(../../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+    box-sizing: border-box;
 }
