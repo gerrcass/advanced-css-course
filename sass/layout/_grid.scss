@@ -1,6 +1,5 @@
 .row{
     max-width: $grid-width; //working with the standard 1140px grid (can be changed in _variables.scss)
-    background-color: #eee;
     margin: 0 auto;
     
     &:not(:last-child){
