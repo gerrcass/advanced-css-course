@@ -25,3 +25,9 @@
     background-color: $color-grey-light-1;
     margin-top: -7rem;
 }
+.section-stories{
+    padding: 15rem 0;
+//    background-color: $color-grey-light-1; //only for testing, in fact this color here hide the video which is absolute positioned
+    position: relative;
+    
+}
