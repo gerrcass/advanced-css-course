@@ -2,7 +2,7 @@
     width: 75%;
     margin: 0 auto;
     box-shadow: 0 3rem 6rem rgba($color-black,.1);
-    background-color: $color-white;
+    background-color: rgba($color-white,.6);
     border-radius: 3px;
     padding: 6rem;
     padding-left: 9rem; //translateX(-3rem) in &__shape needs to be compensated here so the image keeps its original position (6rem+3rem)
@@ -11,6 +11,7 @@
 //    @include clearfix;
     
     transform: skewX(-12deg);
+    
 
 // It doesn't work this way because of &__shape is actually using transform property and takes precedense over this one.
 // Therefore only the traslation applies and not the skew. We need to apply skewX() on each element individually.
