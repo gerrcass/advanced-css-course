@@ -1,4 +1,5 @@
 .btn{
+    &, //added for the <button> element which doesn't have nor :link neither :visited state
     &:link,
     &:visited{
         text-decoration: none;
@@ -9,6 +10,10 @@
         border-radius: 10rem;
         position: relative;
         font-size: $default-font-size;
+        
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover{
@@ -22,7 +27,9 @@
 
     }
 
-    &:active{
+    &:active,
+    &:focus{ //added for the <button> element which outline needs to remove when clicked keeping the shadow for accesibility reasons
+        outline: none; // for the <button>
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
     }
