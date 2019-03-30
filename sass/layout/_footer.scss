@@ -27,6 +27,7 @@
         &:not(:last-child){margin-right: 1.5rem;}
     }
     &__link{
+        display: inline-block;
         &:link,
         &:visited{
             color: $color-grey-light-1;
