@@ -556,6 +556,7 @@ body {
     .footer__item:not(:last-child) {
       margin-right: 1.5rem; }
   .footer__link:link, .footer__link:visited {
+    display: inline-block;
     color: #f7f7f7;
     background-color: #333;
     text-decoration: none;

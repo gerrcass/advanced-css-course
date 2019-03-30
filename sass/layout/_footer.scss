@@ -27,9 +27,9 @@
         &:not(:last-child){margin-right: 1.5rem;}
     }
     &__link{
-        display: inline-block;
         &:link,
         &:visited{
+            display: inline-block; //for the animation to work
             color: $color-grey-light-1;
             background-color: $color-grey-dark-3;
             text-decoration: none;
