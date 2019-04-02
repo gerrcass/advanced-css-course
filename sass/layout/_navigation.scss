@@ -12,8 +12,7 @@
         top: 6rem;
         right: 6rem;
         z-index: 2000;
-        border: 1px solid #000;
-//        background-color: transparent;
+        box-shadow: 0 1rem 3rem rgba($color-black,.1);
         
     }
     &__background{
@@ -25,28 +24,32 @@
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light,$color-primary-dark);
         z-index: 1000;
-        
-        transform: scale(80);
+//        transform: scale(80); //not its initial state
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1); //cubic (easeInOutQuint). See https://easings.net/#easeInOutQuint
+//        transition: transform .8s cubic-bezier(.74,-0.28,.66,-0.17); //crazy example
     }
     &__nav{
         height: 100vh;
-        width: 100%; //not needed in fact because a block element occupy the entire available space
+//        width: 100%; //not needed in fact because a block element occupy the entire available space
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1500;
         
+        opacity: 0; //make it invisible in the first place and change it to "1" when label:checked
+        width: 0; //to be changed by "100%" when checkbox:checked
+        
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55); //cubic (easeInOutBack) move a bit to the opposite side at the begining and at the end. See https://easings.net/#easeInOutBack
     }
     &__list{
         @include center_middle;
         list-style: none;
         text-align: center;
-        
+        width: 100%;
     }
     &__item{
         margin: 1rem;
     }
-    
     &__link{
         &:link,
         &:visited{
@@ -76,6 +79,13 @@
             transform: translateX(1rem);
         }
         
+    }
+    &__checkbox:checked  ~ &__background{
+        transform: scale(80);
+    }
+    &__checkbox:checked ~ &__nav{
+        opacity: 1;
+        width: 100%;
     }
         
 }
