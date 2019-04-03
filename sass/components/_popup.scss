@@ -1,0 +1,111 @@
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%; //actually not really necesary because it is a block element which takes all available width space anyway
+    background-color: rgba($color-black,.8);
+    z-index: 4000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all .3s;
+    
+    &__content{
+        @include center_middle;
+        width: 75%;
+        background-color: $color-white;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 2rem 4rem rgba($color-black,.2);
+        display: table;
+        
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(0.25); //can not use tranform two time in the same element. It needs to be manually added in the last place so that to avoid overriding it
+        transition: all .5s .2s; //delay .2s
+    }
+    
+    &:target &__content{
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+    }
+    
+    &__left{
+        width: 33.3333333%;
+        display: table-cell;
+    }
+    &__right{
+        width: 66.6666667%;
+        display: table-cell;
+        vertical-align:middle;
+        padding: 3rem 5rem;
+    }
+    &__img{
+        display: block;
+        width: 100%;
+        
+    }
+    &__text{
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+        
+        column-count: 2;
+        column-gap: 4rem; //default is 1em, in this case 14px because the element's font-size is 1.4rem.
+        column-rule: 1px solid $color-grey-light-2;
+        
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto; //it needs the html language to be defined so it can works (for example: <html lang="en">)
+    }
+
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+    &__close{
+        &:link,
+        &:visited{
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            color: $color-grey-dark;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1; //because the element is much highter than the X simbol itself, set line-height=1 fix it
+            transition: all .3s;
+        }
+        &:hover{
+            color: $color-primary;
+//            transform: rotate(180deg);
+        }
+        
+// ANOTHER METHOD
+//        &:link,
+//        &:visited{
+//            display: inline-block;
+//            float: right;
+//            position: relative;
+//
+//            &::before,
+//            &:after{
+//                content:"";
+//                position:absolute;
+//                top: 0;
+//                width: 2rem;
+//                height: 2px;
+//                background-color: $color-grey-dark-3;
+//                transition: all .3s;
+//            }
+//            &::before{transform: rotate(45deg);}
+//            &::after{transform: rotate(-45deg);}
+//
+//            &:hover:before,
+//            &:hover:after{background-color: $color-primary;}
+//        }
+    }
+
+    
+}
