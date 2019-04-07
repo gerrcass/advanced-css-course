@@ -1,3 +1,32 @@
+/*
+
+0      -   600px:    Phone
+600    -   900px:    Tablet portrait
+900    -   1200px:   Tablet landscape
+
+[1200  -  1800px]    is where our normal styles apply
+
+1800px +:            Big desktop
+
+
+$breakpoint argument choices:
+* phone
+* tab-port
+* tab-land
+* big-desktop
+
+*/
+/*
+Litle note about unit used in media query:
+em and rems unit, in media query are not affected by a root font size.
+they are always just equal to the font size setting which is comming from the browser
+which is by default 16px. If the user changes it to 20px, them it will be 20px no mattrer
+what we have in our base font definition.
+
+em is more useful to be used here becuase of browser support
+
+1em = 16px
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -35,6 +64,15 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
