@@ -34,9 +34,8 @@ $breakpoint argument choices:
 * tab-land
 * big-desktop
 
-*/
+ORDER: base + typograpfy > general layout (header, footer, navigation, etc) > grid > page layout > components
 
-/*
 Litle note about unit used in media query:
 em and rems unit, in media query are not affected by a root font size.
 they are always just equal to the font size setting which is comming from the browser
@@ -48,7 +47,7 @@ em is more useful to be used here becuase of browser support
 1em = 16px
 */
 
-@mixin repond($breakpoint){
+@mixin respond($breakpoint){
     @if $breakpoint == phone {
         @media (max-width: 37.5em){ @content } //600px
     }
