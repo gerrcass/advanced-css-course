@@ -16,6 +16,9 @@
         display: block;
         transition: all .3s;
         
+        @include respond(tab-port){
+            width: 100%;
+        }
         &:focus{
             border-bottom: 3px solid $color-primary;
             box-shadow: 0 1rem 2rem rgba($color-black,.1);
@@ -48,6 +51,10 @@
     &__radio-group{
         width: 49%; //using width and inline-block instead of float. testing any value which makes it side by side
         display: inline-block;
+        @include respond(tab-port){
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-label{
