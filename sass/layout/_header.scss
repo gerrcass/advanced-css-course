@@ -1,14 +1,41 @@
+//Bulid 
+//npm install concat --save-dev
+//npm install autoprefixer --save-dev
+//npm install postcss-cli --save-dev
+//npm install npm-run-all --save-dev
+
 .header{
     position: relative;
-    height: 95vh;
+    height: 85vh;
     background-image:
-        linear-gradient(to right bottom,rgba($color-primary,0.8),rgba($color-primary-dark,0.8)),
-        url(../../img/hero.jpg);
+        linear-gradient(to right bottom,rgba($color-primary-light,0.8),rgba($color-primary-dark,0.8)),
+        url(../../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     
-    -webkit-clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
-    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+        -webkit-clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+            height: 95vh;
+    }
+    
+    // NOTE1: 192 dots per inch is used because that's the resolution of the Apple retina screen which is ussually used as a reference
+    // NOTE2: min-width is added because in the viewport size of 600px, which is usually a phone with a DPR=2 (Density Pixel Rate), it doesn't make sense to load a image larger than 1200px (600px * 2 = 1200px) which is the size of hero-small.jpg
+    // NOTE3: -webkit-min-device-pixel-ratio condition applied to the media query because of Safari browsers. For the Safari browser, min-resolution: 192dpi is equal to -webkit-min-device-pixel-ratio:2
+    // 37.5em = 600px 
+    // 125em  = 2000px
+    @media  (min-resolution: 192dpi) and (min-width: 37.5em),
+            (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em),
+            (min-resolution:96dpi) and (min-width: 125em){
+        background-image:
+            linear-gradient(to right bottom,rgba($color-primary-light,0.8),rgba($color-primary-dark,0.8)),
+            url(../../img/hero.jpg);        
+    }
+    
+    @include respond(phone){
+        -webkit-clip-path: polygon(0 0,100% 0,100% 85vh,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 85vh,0 100%);
+    }
     
     &__logo-box{
         position: absolute;
